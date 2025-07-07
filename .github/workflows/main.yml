@@ -34,18 +34,18 @@ jobs:
     # Build the Docker Image
     - name: Build Docker Image
       run: |
-        docker build -t sibasish934/devops-demo:${{ env.VERSION }} .
+        docker build -t jitesh2002/devops-demo:${{ env.VERSION }} .
 
     # Push the Docker Image
     - name: Push Docker Image
       run: |
-        docker push sibasish934/devops-demo:${{ env.VERSION }}
+        docker push jitesh2002/devops-demo:${{ env.VERSION }}
 
     # UPdate the K8s Manifest Files
     - name: Update K8s Manifests
       run: |
         cat deploy/deployment.yaml
-        sed -i "s|image: sibasish934/devops-demo:.*|image: sibasish934/devops-demo:${{ env.VERSION }}|g" deploy/deployment.yaml
+        sed -i "s|image: jitesh2002/devops-demo:.*|image: jitesh2002/devops-demo:${{ env.VERSION }}|g" deploy/deployment.yaml
         cat deploy/deployment.yaml
 
     # Update Github
