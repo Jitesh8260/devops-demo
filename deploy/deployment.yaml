@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-deployment
+  namespace: default
+  labels:
+    app: devops 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops
+  template:
+    metadata:
+      labels:
+        app: devops
+    spec:
+      containers:
+      - name: devops-demo
+        image: sibasish934/devops-demo:v20250701041710
+        ports:
+        - containerPort: 80
